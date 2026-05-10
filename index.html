@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>FlowMind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="side-head">
+      <div class="brand-mark">F</div>
+      <div>
+        <strong>FlowMind</strong>
+        <span>Operational Workspace</span>
+      </div>
+    </div>
+
+    <nav class="side-nav">
+      <button class="nav-item active" data-filter="all">⌘ Todos</button>
+      <button class="nav-item" data-filter="favorite">★ Favoritos</button>
+      <button class="nav-item" data-filter="recent">◷ Recentes</button>
+      <button class="nav-item" data-filter="bottleneck">◇ Gargalos</button>
+      <button class="nav-item" data-filter="improvement">✦ Melhorias</button>
+      <button class="nav-item" data-filter="archived">↧ Arquivados</button>
+    </nav>
+
+    <div class="side-section">
+      <p>Tags inteligentes</p>
+      <div class="tag-cloud" id="tagCloud"></div>
+    </div>
+
+    <div class="side-footer">
+      <small>Offline • localStorage • Auto save</small>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+      <div class="mobile-brand">
+        <div class="brand-mark small">F</div>
+        <span>FlowMind</span>
+      </div>
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Pesquisar processos, gargalos e melhorias..." />
+      </div>
+      <button class="new-btn" id="newBtn">+ Nova anotação</button>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">workspace operacional inteligente</p>
+        <h1>Transforme gargalos em melhorias contínuas.</h1>
+        <p>Registre processos, encontre padrões e organize ideias com velocidade de app premium.</p>
+      </div>
+      <div class="hero-stats">
+        <div><strong id="totalCount">0</strong><span>Notas</span></div>
+        <div><strong id="improvementCount">0</strong><span>Melhorias</span></div>
+        <div><strong id="bottleneckCount">0</strong><span>Gargalos</span></div>
+      </div>
+    </section>
+
+    <section class="quick-filters" id="quickFilters">
+      <button class="chip active" data-filter="all">Todos</button>
+      <button class="chip" data-filter="favorite">Favoritos</button>
+      <button class="chip" data-filter="bottleneck">Gargalos</button>
+      <button class="chip" data-filter="improvement">Melhorias</button>
+      <button class="chip" data-filter="archived">Arquivados</button>
+    </section>
+
+    <section class="feed" id="feed"></section>
+
+    <button class="fab" id="fab">+</button>
+  </main>
+
+  <dialog class="note-modal" id="noteModal">
+    <form method="dialog" class="modal-card" id="noteForm">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">nova melhoria</p>
+          <h2>Nova anotação</h2>
+        </div>
+        <button class="icon-btn" value="cancel" type="button" id="closeModal">×</button>
+      </div>
+
+      <label>Título
+        <input id="titleField" required placeholder="Ex: Aprovação de compras" />
+      </label>
+      <label>Processo
+        <textarea id="processField" placeholder="Descreva o processo..." rows="3"></textarea>
+      </label>
+      <label>Gargalo
+        <textarea id="bottleneckField" placeholder="Descreva o gargalo..." rows="3"></textarea>
+      </label>
+      <label>Ideia de melhoria
+        <textarea id="ideaField" placeholder="Minha ideia de melhoria..." rows="3"></textarea>
+      </label>
+
+      <div class="modal-actions">
+        <button type="button" class="ghost-btn" id="cancelModal">Cancelar</button>
+        <button type="submit" class="new-btn">Salvar anotação</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
